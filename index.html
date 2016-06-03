@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="pricepoint" ng-controller="PricepointController">
+  <head>
+    <meta charset="utf-8">
+    <title>Price Point - AngularJS</title>
+  </head>
+  <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+  <body>
+
+    <div class="container">
+      <h1>Simple VIN Search with AngularJS</h1>
+      <h4>VINs to test 2HNYD2H42DH504765, WDCGG0EB8FG358249</h4>
+      <form ng-submit="searchByVIN()">
+        <input type="text" ng-model="vin" placeholder="Search by VIN..." class="searchbox">
+        <button type="submit" class="btn">Search</button>
+      </form>
+
+      <div class="results" ng-show="vehicleResultsArray.length" ng-repeat="vehicle in vehicleResultsArray">
+        <p>Private Party Clean: {{ vehicle.adjusted_private_clean | currency:"$":0 }}</p>
+        <p>Private Party Average: {{ vehicle.adjusted_private_avg | currency:"$":0 }}</p>
+        <p>Private Party Rough: {{ vehicle.adjusted_private_rough | currency:"$":0 }}</p>
+        <p>Trade-In Clean: {{ vehicle.adjusted_tradein_clean | currency:"$":0 }}</p>
+        <p>Trade-In Average: {{ vehicle.adjusted_tradein_avg | currency:"$":0 }}</p>
+        <p>Trade-In Rough: {{ vehicle.adjusted_tradein_rough | currency:"$":0 }}</p>
+        <p>MPG: {{ vehicle.city_mpg }} / {{ vehicle.hwy_mpg }}</p>
+        <p>Horsepower: {{ vehicle.base_hp }}</p>
+        <p>Torque: {{ vehicle.torque }}</p>
+        <p>Airbags: {{ vehicle.airbags }}</p>
+      </div>
+
+    </div>
+
+    <script src="angular.js"></script>
+    <script src="main.js"></script>
+
+  </body>
+</html>

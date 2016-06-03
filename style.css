@@ -1,0 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+.searchbox, .btn {
+  padding: 5px 10px;
+  font-size: 1.1em;
+}
